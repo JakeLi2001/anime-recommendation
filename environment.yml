@@ -1,0 +1,13 @@
+name: anime-recommendation
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jupyterlab
+  - python
+  - streamlit
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+prefix: /opt/miniconda3/envs/anime-recommendation
