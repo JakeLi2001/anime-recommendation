@@ -3,7 +3,6 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - jupyterlab
   - python
   - streamlit
   - numpy
