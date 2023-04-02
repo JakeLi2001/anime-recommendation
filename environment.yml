@@ -3,10 +3,10 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python
-  - streamlit
+  - matplotlib
   - numpy
   - pandas
-  - matplotlib
+  - python
   - seaborn
-prefix: /opt/miniconda3/envs/anime-recommendation
+  - streamlit
+prefix: C:\Users\lijhu\miniconda3\envs\anime-recommendation
