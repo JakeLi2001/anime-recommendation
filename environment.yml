@@ -9,4 +9,6 @@ dependencies:
   - python
   - seaborn
   - streamlit
+  - nltk
+  - scikit-learn
 prefix: C:\Users\lijhu\miniconda3\envs\anime-recommendation
