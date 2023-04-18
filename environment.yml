@@ -8,6 +8,4 @@ dependencies:
   - pandas
   - python
   - seaborn
-  - streamlit
-  - nltk
-  - scikit-learn
+prefix: /opt/miniconda3/envs/anime-recommendation
