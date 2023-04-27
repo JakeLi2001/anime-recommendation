@@ -4,11 +4,11 @@ channels:
   - defaults
 dependencies:
   - matplotlib
-  - nltk
   - numpy
   - pandas
   - python
-  - scikit-learn
   - seaborn
+  - streamlit
   - ipykernel
-prefix: /home/jakeli/miniconda3/envs/anime-recommendation
+  - nltk
+prefix: /opt/miniconda3/envs/anime-recommendation
