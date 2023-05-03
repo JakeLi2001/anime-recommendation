@@ -12,4 +12,7 @@ dependencies:
   - ipykernel
   - nltk
   - scikit-learn
+  - pip
+  - pip:
+    - streamlit
 prefix: /opt/miniconda3/envs/anime-recommendation
