@@ -6,14 +6,23 @@ from sklearn.metrics.pairwise import cosine_similarity
 st.set_page_config(page_title='Animendations', layout='wide')
 
 st.title('Enter an anime title and get recommendations based on plot similarity!')
-cleaned_df = pd.read_csv('data/cleaned_anime_data.csv')
+
+@st.cache_resource
+def load_data(path):
+    return pd.read_csv(path)
+
+cleaned_df = load_data('data/cleaned_anime_data.csv')
 labels = cleaned_df['title']
 user_input = st.selectbox(label='Enter an anime', options=labels)
+    
+@st.cache_resource
+def create_cos_sim(string_column):
+    tf_vec = TfidfVectorizer(ngram_range=(1,2), max_df=0.8, min_df=0.1, use_idf=True)
+    tfidf_matrix = tf_vec.fit_transform(string_column)
+    tfidf_array = tfidf_matrix.toarray()
+    return cosine_similarity(tfidf_array, tfidf_array)
 
-tf_vec = TfidfVectorizer(ngram_range=(1,2), max_df=0.8, min_df=0.1, use_idf=True)
-tfidf_matrix = tf_vec.fit_transform(cleaned_df['cleaned_string'])
-tfidf_array = tfidf_matrix.toarray()
-cos_sim = cosine_similarity(tfidf_array, tfidf_array)
+cos_sim = (cleaned_df['cleaned_string'])
 indices = pd.Series(cleaned_df.index, index=cleaned_df['title'])
 
 def get_recommendations(title, cosine_sim, indices):
@@ -49,14 +58,13 @@ def get_recommendations(title, cosine_sim, indices):
         return new_results
 
 animes = get_recommendations(user_input, cos_sim, indices)
-print(animes['medium_picture_url'])
 
 st.dataframe(animes)
 
+st.image(animes['medium_picture_url'].iloc[0])
 
-
-# st.image(animes['medium_picture_url'][0])
-# with st.expander(animes['title'][0]):
+with st.expander(animes['title'].iloc[0]):
+    st.dataframe(animes.iloc[0])
 
 
 
