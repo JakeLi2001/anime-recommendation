@@ -3,11 +3,9 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - matplotlib
   - numpy
   - pandas
   - python
-  - seaborn
   - streamlit
   - ipykernel
   - nltk
