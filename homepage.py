@@ -27,7 +27,7 @@ user_input = st.selectbox(label='Enter an anime', options=labels)
 
 @st.cache_resource(show_spinner=False)
 def create_cos_sim(string_column):
-    tf_vec = TfidfVectorizer(ngram_range=(1,2), max_df=0.7, min_df=2)
+    tf_vec = TfidfVectorizer(ngram_range=(1,2), max_df=0.7, min_df=3)
     tfidf_matrix = tf_vec.fit_transform(string_column)
     tfidf_array = tfidf_matrix.toarray()
     return cosine_similarity(tfidf_array, tfidf_array)
@@ -74,7 +74,7 @@ def get_recommendations(title, cosine_sim, indices):
         new_results = pd.concat([filtered_results, add_recommendations])
         return new_results
 
-with st.spinner('Calculating and generating recommendations... (first time is slow but sequential steps should be instant)'):
+with st.spinner('Calculating and generating recommendations...'):
     cos_sim = create_cos_sim(cleaned_df['cleaned_string'].astype('str'))
     indices = pd.Series(cleaned_df.index, index=cleaned_df['title'])
 
