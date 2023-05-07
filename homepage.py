@@ -17,23 +17,20 @@ st.markdown(
 )
 st.divider()
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_data(path):
-    return pd.read_csv(path)
-
+    df = pd.read_csv(path)
+    return df
 cleaned_df = load_data('data/cleaned_anime_data.csv')
 labels = cleaned_df['title']
 user_input = st.selectbox(label='Enter an anime', options=labels)
-    
-@st.cache_resource
+
+@st.cache_resource(show_spinner=False)
 def create_cos_sim(string_column):
-    tf_vec = TfidfVectorizer(ngram_range=(1,2), max_df=0.8, min_df=0.1, use_idf=True)
+    tf_vec = TfidfVectorizer(ngram_range=(1,2), max_df=0.7, min_df=2)
     tfidf_matrix = tf_vec.fit_transform(string_column)
     tfidf_array = tfidf_matrix.toarray()
     return cosine_similarity(tfidf_array, tfidf_array)
-
-cos_sim = (cleaned_df['cleaned_string'])
-indices = pd.Series(cleaned_df.index, index=cleaned_df['title'])
 
 def get_recommendations(title, cosine_sim, indices):
     idx = indices[title]
@@ -47,12 +44,18 @@ def get_recommendations(title, cosine_sim, indices):
     # return the top 20 most similar animes that doesn't contain the title
     results = cleaned_df[['title', 'alternative_title(s)', 'synopsis', 'genres', 'studios', 'mean', 'year', 'status', 'medium_picture_url']].iloc[movie_indices]
     
-    # check if results contain the sequels, if yes, remove them and add new recommendation until no sequels exists in the top 20 
-    filtered_results = results[results['title'].str.contains(title)==False]
+    # filter out animes that have a mean (rating) lower than 7
+    filtered_results = results[results['mean']>=7]
+    # check if results contain the words in the title, if yes, remove and add new recommendation until no sequels exists in the top 20
+    title_word_list = [x for x in title.split() if len(x)>5]
+    for i in title_word_list:
+        filtered_results = filtered_results[filtered_results['title'].str.contains(i)==False]
+    # filtered_results = results[results['title'].str.contains(title)==False]
+
     diff = results.shape[0] - filtered_results.shape[0]
     
     if diff == 0:
-        return results
+        return filtered_results
     else:
         add_recommendations = pd.DataFrame(columns=['title', 'alternative_title(s)', 'synopsis', 'genres', 'studios', 'mean', 'year', 'status', 'medium_picture_url'])
         while diff > 0:
@@ -60,19 +63,27 @@ def get_recommendations(title, cosine_sim, indices):
             last = last + diff
             new_movie_idx = [i[0] for i in new_idx]
             new_recommendations = cleaned_df[['title', 'alternative_title(s)', 'synopsis', 'genres', 'studios', 'mean', 'year', 'status', 'medium_picture_url']].iloc[new_movie_idx]
-            filtered_new_recommendations = new_recommendations[new_recommendations["title"].str.contains(title)==False]
+            filtered_new_recommendations = new_recommendations[new_recommendations['mean']>=7]
+            for i in title_word_list:
+                filtered_new_recommendations = filtered_new_recommendations[filtered_new_recommendations['title'].str.contains(i)==False]
+            # filtered_new_recommendations = filtered_new_recommendations[filtered_new_recommendations["title"].str.contains(title)==False]
+
             add_recommendations = pd.concat([add_recommendations, filtered_new_recommendations])    
             diff = new_recommendations.shape[0] - filtered_new_recommendations.shape[0]
 
         new_results = pd.concat([filtered_results, add_recommendations])
         return new_results
 
-animes = get_recommendations(user_input, cos_sim, indices).reset_index(drop=True)
+with st.spinner('Calculating and generating recommendations... (first time is slow but sequential steps should be instant)'):
+    cos_sim = create_cos_sim(cleaned_df['cleaned_string'].astype('str'))
+    indices = pd.Series(cleaned_df.index, index=cleaned_df['title'])
+
+animes = get_recommendations(user_input, cos_sim, indices).sort_values(by=['year', 'mean'], ascending=False).reset_index(drop=True)
 animes.index += 1
 
 st.divider()
 
-for x in range(1,11):
+for x in range(1,21):
     st.write(f'Recommendation {x}: ')
     with st.expander(animes['title'].loc[x], expanded=True):
         col1, col2 = st.columns([1,4])
@@ -86,13 +97,6 @@ for x in range(1,11):
             st.write('Year released:', str(animes['year'].loc[x]))
             st.write('Status:', animes['status'].loc[x])
             st.write('Synopsis:', animes['synopsis'].loc[x])
-
-
-
-
-
-
-
 
 
 
