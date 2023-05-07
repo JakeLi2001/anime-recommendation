@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -6,6 +7,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 st.set_page_config(page_title='Animendations', layout='wide')
 
 st.title('Enter an anime title and get recommendations based on plot similarity!')
+file_ = open('gifs/oshi-no-ko.gif', "rb")
+contents = file_.read()
+data_url = base64.b64encode(contents).decode("utf-8")
+file_.close()
+st.markdown(
+    f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+    unsafe_allow_html=True,
+)
+st.divider()
 
 @st.cache_resource
 def load_data(path):
@@ -57,14 +67,25 @@ def get_recommendations(title, cosine_sim, indices):
         new_results = pd.concat([filtered_results, add_recommendations])
         return new_results
 
-animes = get_recommendations(user_input, cos_sim, indices)
+animes = get_recommendations(user_input, cos_sim, indices).reset_index(drop=True)
+animes.index += 1
 
-st.dataframe(animes)
+st.divider()
 
-st.image(animes['medium_picture_url'].iloc[0])
-
-with st.expander(animes['title'].iloc[0]):
-    st.dataframe(animes.iloc[0])
+for x in range(1,11):
+    st.write(f'Recommendation {x}: ')
+    with st.expander(animes['title'].loc[x], expanded=True):
+        col1, col2 = st.columns([1,4])
+        with col1:
+            st.image(animes['medium_picture_url'].loc[x])
+        with col2:
+            st.header(animes['title'].loc[x])
+            st.write('Alternative title(s):', str(animes['alternative_title(s)'].loc[x]))
+            st.write('Genre(s):', animes['genres'].loc[x])
+            st.write('Studio(s):', animes['studios'].loc[x])
+            st.write('Year released:', str(animes['year'].loc[x]))
+            st.write('Status:', animes['status'].loc[x])
+            st.write('Synopsis:', animes['synopsis'].loc[x])
 
 
 
