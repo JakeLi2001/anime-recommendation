@@ -1,6 +1,6 @@
 # Anime Recommendation Engine (CTP Project)
 
-Check out my web app [here](https://animendation.streamlit.app/)
+Check out my web app [here](https://animendation.streamlit.app/)!
 
 **Goal**: To build an anime recommendation engine and host on Streamlit.
 
