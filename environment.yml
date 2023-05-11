@@ -1,0 +1,12 @@
+name: anime
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - nltk
+  - numpy
+  - pandas
+  - python
+  - scikit-learn
+  - streamlit
+prefix: /opt/miniconda3/envs/anime
