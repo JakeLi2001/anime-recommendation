@@ -7,7 +7,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 st.set_page_config(page_title='Animendation', layout='wide')
 
 st.title('Welcome to Animendation!')
-file_ = open('streamlit/gifs/oshi-no-ko.gif', "rb")
+file_ = open('streamlit_app/gifs/oshi-no-ko.gif', "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
