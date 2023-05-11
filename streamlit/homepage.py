@@ -4,10 +4,10 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-st.set_page_config(page_title='Animendations', layout='wide')
+st.set_page_config(page_title='Animendation', layout='wide')
 
-st.title('Enter an anime title and get recommendations based on plot similarity!')
-file_ = open('gifs/oshi-no-ko.gif', "rb")
+st.title('Welcome to Animendation!')
+file_ = open('streamlit/gifs/oshi-no-ko.gif', "rb")
 contents = file_.read()
 data_url = base64.b64encode(contents).decode("utf-8")
 file_.close()
