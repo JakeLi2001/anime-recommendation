@@ -17,7 +17,7 @@ Check out my web app [here](https://animendation.streamlit.app/)!
 
 ## 🎯 Results
 
-[Web app]((https://animendation.streamlit.app/))
+[Web app](https://animendation.streamlit.app/)
 
 ## 🛠️ Tech Stack
 
