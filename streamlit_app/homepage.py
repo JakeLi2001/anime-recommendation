@@ -90,7 +90,7 @@ with st.spinner('Initial setup...'):
     cos_sim = create_cos_sim(cleaned_df['cleaned_string'].astype('str'))
     indices = pd.Series(cleaned_df.index, index=cleaned_df['title'])
 
-user_input = st.selectbox(label='Enter an anime title:', options=labels)
+user_input = st.selectbox(label='Enter an anime title: Japanese title (English title)', options=labels)
 
 if 'status' not in st.session_state:
     st.session_state.status = False
