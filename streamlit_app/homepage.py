@@ -109,6 +109,7 @@ if st.session_state.status:
             st.write(f'Recommendation {i}:')
             title = animes['title'].loc[i]
             score = animes['cosine_similarity_score'].loc[i]
+            score = round(score, 2)
             with st.expander(label=f'{title} - Similarity Score: {score}', expanded=True):
                 col1, col2 = st.columns([1,4])
                 with col1:
@@ -129,6 +130,7 @@ if st.session_state.status:
             st.write(f'Recommendation {i}:')
             title = animes['title'].loc[i]
             score = animes['cosine_similarity_score'].loc[i]
+            score = round(score, 2)
             with st.expander(label=f'{title} - Similarity Score: {score}', expanded=True):
                 col1, col2 = st.columns([1,4])
                 with col1:
@@ -149,6 +151,7 @@ if st.session_state.status:
             st.write(f'Recommendation {i}:')
             title = animes['title'].loc[i]
             score = animes['cosine_similarity_score'].loc[i]
+            score = round(score, 2)
             with st.expander(label=f'{title} - Similarity Score: {score}', expanded=True):
                 col1, col2 = st.columns([1,4])
                 with col1:
