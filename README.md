@@ -1,25 +1,34 @@
-# Anime Recommendation Engine
+# Animendation
 
-Check out my web app [here](https://animendation.streamlit.app/)!
+## Introduction
 
 **Goal**: To build an anime recommendation engine and host on Streamlit.
 
 **Motivation**: I love anime.
 
-## :mag_right: Data Source: [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication)
+Check out my web app [here](https://animendation.streamlit.app/)!
 
-## 📖 Summary
+## Table of Contents
+
+- [Quick Summary](#open_book-quick-summary)
+- [Data Source](#mag_right-data-source-myanimelist-api)
+- [Result](#dart-result)
+- [Tech Stack](#hammer_and_wrench-tech-stack)
+
+## :open_book: Quick Summary
 
 1. Get data via the MyAnimeList API and export as CSV.
-2. Data cleaning and exploratory data analysis.
-3. Text Preprocessing
+2. Exploratory data analysis and data cleaning.
+3. Text preprocessing.
 4. Build model using cosine similarity.
 
-## 🎯 Results
+## :mag_right: Data Source: [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication)
 
-[Web app](https://animendation.streamlit.app/)
+## :dart: Result
 
-## 🛠️ Tech Stack
+Model deployed on Streamlit! ([Web app](https://animendation.streamlit.app/))
+
+## :hammer_and_wrench: Tech Stack
 
 **Language:** Python
 
