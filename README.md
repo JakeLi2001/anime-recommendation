@@ -1,4 +1,4 @@
-# Anime Recommendation Engine (CTP Project)
+# Anime Recommendation Engine
 
 Check out my web app [here](https://animendation.streamlit.app/)!
 
