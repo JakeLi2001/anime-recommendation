@@ -6,6 +6,8 @@
 
 **Motivation**: I love anime.
 
+<img src='https://tenor.com/view/spy-x-family-anya-sparkling-eyes-anime-gif-25175073.gif' width='400' height='250' />
+ 
 Check out my web app [here](https://animendation.streamlit.app/)!
 
 ## Table of Contents
