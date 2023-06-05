@@ -24,7 +24,9 @@ By valcrist via [Tenor](https://tenor.com/view/spy-x-family-anya-sparkling-eyes-
 3. Text preprocessing.
 4. Build model using cosine similarity.
 
-## :mag_right: Data Source: [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication)
+## :mag_right: Data Source
+
+Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication). 
 
 ## :dart: Result
 
