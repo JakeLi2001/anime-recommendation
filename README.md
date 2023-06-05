@@ -1,4 +1,4 @@
-# Animendation
+# Animendation (Anime Recommendation Engine)
 
 ## Introduction
 
