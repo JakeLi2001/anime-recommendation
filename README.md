@@ -6,27 +6,16 @@
 
 **Motivation**: I love anime.
 
-<img src='https://tenor.com/view/spy-x-family-anya-sparkling-eyes-anime-gif-25175073.gif' width=400 height=250 />
+## :mag_right: Data Source
 
-By valcrist via [Tenor](https://tenor.com/view/spy-x-family-anya-sparkling-eyes-anime-gif-25175073)
+Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication).
 
-## Table of Contents
-
-- [Quick Summary](#open_book-quick-summary)
-- [Data Source](#mag_right-data-source-myanimelist-api)
-- [Result](#dart-result)
-- [Tech Stack](#hammer_and_wrench-tech-stack)
-
-## :open_book: Quick Summary
+## :open_book: Summary
 
 1. Get data via the MyAnimeList API and export as CSV.
 2. Exploratory data analysis and data cleaning.
 3. Text preprocessing.
 4. Build model using cosine similarity.
-
-## :mag_right: Data Source
-
-Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication). 
 
 ## :dart: Result
 
