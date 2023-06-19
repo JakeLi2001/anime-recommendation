@@ -40,7 +40,7 @@ The idea is to create a simple anime recommendation engine using cosine similari
 
 ## :mag_right: Data Source
 
-Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication).
+Pulled the top 10K most popular animes from the [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication).
 
 [Back to TOC](#label-table-of-contents)
 
@@ -48,7 +48,7 @@ Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelis
 
 1. Get data via the MyAnimeList API and export it as CSV.
 2. Exploratory data analysis and data cleaning.
-3. Text preprocessing.
+3. Text preprocessing on the synopsis and genres column.
 4. Build a recommendation engine using cosine similarity.
 
 [Back to TOC](#label-table-of-contents)
