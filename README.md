@@ -31,18 +31,18 @@
 └── environment.yml                     # requirements for the project
 ```
 
-[Back to TOC](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents-toc)
 
 ## :memo: Project Description
 The idea is to create a simple anime recommendation engine using cosine similarity based on anime synopsis(plot) and genres. Cosine similarity measures how similar two vectors are to each other on a scale from 0 (opposite) to 1 (identical), and I want to use it to measure how similar animes are. In other words, I am going to measure how similar an anime is to every other anime in the dataset. Once I have the cosine similarity scores, I can use it to provide similar anime recommendations given the title.
 
-[Back to TOC](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents-toc)
 
 ## :mag_right: Data Source
 
 Pulled the top 10K most popular animes from the [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication).
 
-[Back to TOC](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents-toc)
 
 ## :open_book: Summary
 
@@ -51,13 +51,13 @@ Pulled the top 10K most popular animes from the [MyAnimeList API](https://myanim
 3. Text preprocessing on the synopsis and genres column.
 4. Build a recommendation engine using cosine similarity.
 
-[Back to TOC](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents-toc)
 
 ## :dart: Result
 
 Model deployed on Streamlit! ([Web app](https://animendation.streamlit.app/))
 
-[Back to TOC](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents-toc)
 
 ## :hammer_and_wrench: Tech Stack
 
@@ -69,4 +69,4 @@ Model deployed on Streamlit! ([Web app](https://animendation.streamlit.app/))
 
 **Tool:** Jupyter Lab
 
-[Back to TOC](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents-toc)
