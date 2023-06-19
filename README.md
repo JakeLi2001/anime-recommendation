@@ -4,7 +4,7 @@
 
 **Motivation**: I love anime.
 
-## :label: Table of Contents
+## :label: Table of Contents (TOC)
 - [File/Code Structure](#open_file_folder-filecode-structure)
 - [Project Description](#memo-project-description)
 - [Data Source](#mag_right-data-source)
@@ -31,18 +31,18 @@
 └── environment.yml                     # requirements for the project
 ```
 
-[Back to top](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents)
 
 ## :memo: Project Description
 The idea is to create a simple anime recommendation engine using cosine similarity based on anime synopsis(plot) and genres. Cosine similarity measures how similar two vectors are to each other on a scale from 0 (opposite) to 1 (identical), and I want to use it to measure how similar animes are. In other words, I am going to measure how similar an anime is to every other anime in the dataset. Once I have the cosine similarity scores, I can use it to provide similar anime recommendations given the title.
 
-[Back to top](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents)
 
 ## :mag_right: Data Source
 
 Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelist.net/apiconfig/references/api/v2#section/Authentication).
 
-[Back to top](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents)
 
 ## :open_book: Summary
 
@@ -51,13 +51,13 @@ Pulled the top 10K most popular animes from [MyAnimeList API](https://myanimelis
 3. Text preprocessing.
 4. Build a recommendation engine using cosine similarity.
 
-[Back to top](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents)
 
 ## :dart: Result
 
 Model deployed on Streamlit! ([Web app](https://animendation.streamlit.app/))
 
-[Back to top](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents)
 
 ## :hammer_and_wrench: Tech Stack
 
@@ -69,4 +69,4 @@ Model deployed on Streamlit! ([Web app](https://animendation.streamlit.app/))
 
 **Tool:** Jupyter Lab
 
-[Back to top](#label-table-of-contents)
+[Back to TOC](#label-table-of-contents)
